@@ -1,0 +1,44 @@
+<idea-plugin>
+  <id>me.chaerim.yapf</id>
+  <name>yapf</name>
+  <version>0.1</version>
+  <vendor email="yeochaerim@gmail.com" url="https://github.com/cryeo">Chaerim Yeo</vendor>
+
+  <description><![CDATA[
+      <a href="https://github.com/google/yapf">google/yapf</a> plugin for Jetbrains IDEs.
+    ]]>
+  </description>
+
+  <change-notes></change-notes>
+
+  <!-- please see http://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/build_number_ranges.html for description -->
+  <idea-version since-build="145.0"/>
+
+  <!-- please see http://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/plugin_compatibility.html
+       on how to target different products -->
+  <depends>com.intellij.modules.lang</depends>
+  <depends>com.intellij.modules.platform</depends>
+  <depends>com.intellij.modules.vcs</depends>
+
+  <extensions defaultExtensionNs="com.intellij">
+    <projectConfigurable groupId="tools"
+                         displayName="YAPF"
+                         id="preferences.yapf"
+                         instance="me.chaerim.yapf.SettingsConfigurable" />
+    <projectService serviceImplementation="me.chaerim.yapf.Settings"/>
+  </extensions>
+
+  <actions>
+    <action id="YapfFormat" class="me.chaerim.yapf.FormatAction" text="Reformat code with YAPF"
+            description="Reformat code with YAPF">
+      <add-to-group group-id="CodeMenu" anchor="first"/>
+      <keyboard-shortcut keymap="$default" first-keystroke="meta alt SEMICOLON"/>
+    </action>
+  </actions>
+
+  <application-components>
+    <component>
+      <implementation-class>me.chaerim.yapf.FormatOnSaveComponent</implementation-class>
+    </component>
+  </application-components>
+</idea-plugin>
