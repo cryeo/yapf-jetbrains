@@ -1,12 +1,12 @@
 package me.chaerim.yapf
 
 import com.intellij.openapi.options.SearchableConfigurable
-import com.intellij.openapi.project.Project
+import com.intellij.openapi.project.{Project => IdeaProject}
 import javax.swing.JComponent
+import me.chaerim.yapf.Project._
 
-class SettingsConfigurable(project: Project) extends SearchableConfigurable {
-  private val settings: Settings   = Settings(project)
-  private val panel: SettingsPanel = new SettingsPanel(settings)
+class SettingsConfigurable(project: IdeaProject) extends SearchableConfigurable {
+  private val panel: SettingsPanel = new SettingsPanel(project.settings)
 
   override def getDisplayName: String = Settings.PluginName
 

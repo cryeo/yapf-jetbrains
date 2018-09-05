@@ -1,7 +1,7 @@
 <idea-plugin>
   <id>me.chaerim.yapf</id>
   <name>yapf</name>
-  <version>0.1</version>
+  <version>0.2</version>
   <vendor email="yeochaerim@gmail.com" url="https://github.com/cryeo">Chaerim Yeo</vendor>
 
   <description><![CDATA[

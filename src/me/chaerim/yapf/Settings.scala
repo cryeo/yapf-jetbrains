@@ -1,7 +1,6 @@
 package me.chaerim.yapf
 
 import com.intellij.openapi.components._
-import com.intellij.openapi.project.Project
 import com.intellij.util.xmlb.XmlSerializerUtil
 
 import scala.beans.BeanProperty
@@ -26,6 +25,4 @@ object Settings {
   val PluginName: String            = "YAPF"
   val DefaultStyleFileName: String  = ".style.yapf"
   val DefaultExecutablePath: String = "/usr/local/bin/yapf"
-
-  def apply(project: Project): Settings = ServiceManager.getService(project, classOf[Settings])
 }
